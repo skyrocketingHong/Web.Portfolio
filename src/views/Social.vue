@@ -6,48 +6,12 @@
     <div class="col-container">
       <div class="row-container">
         <statCard
-          statTitle="Telegram Channel"
-          :followers="telegram.data"
-          suffix="members"
-          icon="telegram.png"
-          :loading="telegram.loading"
-          link="https://t.me/realSpencerWoo"
-        />
-        <statCard
           statTitle="Jike"
           :followers="jike.data"
           suffix="followers"
           icon="jike.png"
           :loading="jike.loading"
-          link="https://m.okjike.com/users/4DDA0425-FB41-4188-89E4-952CA15E3C5E"
-        />
-      </div>
-      <div class="row-container">
-        <statCard
-          statTitle="RSS"
-          :followers="rss.data"
-          suffix="subscribers"
-          icon="rss.png"
-          :loading="rss.loading"
-          link="https://blog.spencerwoo.com/posts/index.xml"
-        />
-        <statCard
-          statTitle="SSPAI"
-          :followers="sspai.data"
-          suffix="followers"
-          icon="sspai.png"
-          :loading="sspai.loading"
-          link="https://sspai.com/u/spencerwoo/posts"
-        />
-      </div>
-      <div class="row-container">
-        <statCard
-          statTitle="Weibo"
-          :followers="weibo.data"
-          suffix="fans"
-          icon="weibo.png"
-          :loading="weibo.loading"
-          link="https://weibo.com/spencerwoo"
+          link="https://m.okjike.com/users/0cdff532-44f1-4109-bfba-7da3debef5d5/"
         />
         <statCard
           statTitle="Zhihu"
@@ -55,7 +19,7 @@
           suffix="followers"
           icon="zhihu.png"
           :loading="zhihu.loading"
-          link="https://www.zhihu.com/people/spencerwoo"
+          link="https://www.zhihu.com/people/skyrocketHong/"
         />
       </div>
       <div class="row-container">
@@ -65,7 +29,7 @@
           suffix="followers"
           icon="twitter.png"
           :loading="twitter.loading"
-          link="https://twitter.com/realSpencerWoo"
+          link="https://twitter.com/skyrocketinHong/"
         />
         <statCard
           statTitle="GitHub"
@@ -73,17 +37,17 @@
           suffix="followers"
           icon="github.png"
           :loading="github.loading"
-          link="https://github.com/spencerwooo"
+          link="https://github.com/skyrocketingHong/"
         />
       </div>
       <div class="row-container">
         <statCard
-          statTitle="Medium"
-          :followers="medium.data"
-          suffix="readers"
-          icon="medium.png"
-          :loading="medium.loading"
-          link="https://medium.com/spencerweekly"
+          statTitle="Weibo"
+          :followers="weibo.data"
+          suffix="fans"
+          icon="weibo.png"
+          :loading="weibo.loading"
+          link="https://www.weibo.com/2947616165/"
         />
         <statCard
           statTitle="Steam Games"
@@ -91,7 +55,7 @@
           suffix="games"
           icon="steam.png"
           :loading="steamGames.loading"
-          link="https://steamcommunity.com/id/firebearllc/"
+          link="https://steamcommunity.com/id/skyrocketingHong/"
         />
       </div>
     </div>
@@ -112,62 +76,41 @@ export default {
   },
   data() {
     return {
-      rss: { data: 0, loading: true },
       jike: { data: 0, loading: true },
-      sspai: { data: 0, loading: true },
       zhihu: { data: 0, loading: true },
-      weibo: { data: 0, loading: true },
       twitter: { data: 0, loading: true },
-      medium: { data: 0, loading: true },
       github: { data: 0, loading: true },
+      weibo: { data: 0, loading: true },
       steamGames: { data: 0, loading: true },
-      telegram: { data: 0, loading: true },
     }
   },
   mounted() {
     const apiUrl = 'https://api.spencerwoo.com/substats'
-    const rssUrl = 'https://blog.spencerwoo.com/posts/index.xml'
 
-    const rssAxios = this.axios.get(`${apiUrl}/?source=feedly|inoreader|feedsPub&queryKey=${rssUrl}`)
-    const sspaiAxios = this.axios.get(`${apiUrl}/?source=sspai&queryKey=spencerwoo`)
-    const jikeAxios = this.axios.get(`${apiUrl}/?source=jikeFollower&queryKey=4DDA0425-FB41-4188-89E4-952CA15E3C5E`)
-    const zhihuAxios = this.axios.get(`${apiUrl}/?source=zhihu&queryKey=spencerwoo`)
-    const weiboAxios = this.axios.get(`${apiUrl}/?source=weibo&queryKey=6265807914`)
-    const twitterAxios = this.axios.get(`${apiUrl}/?source=twitter&queryKey=realSpencerWoo`)
-    const mediumAxios = this.axios.get(`${apiUrl}/?source=medium&queryKey=@SpencerWooo`)
-    const githubAxios = this.axios.get(`${apiUrl}/?source=github&queryKey=spencerwooo`)
-    const steamGamesAxios = this.axios.get(`${apiUrl}/?source=steamGames&queryKey=76561198336249957`)
-    const telegramAxios = this.axios.get(`${apiUrl}/?source=telegram&queryKey=realSpencerWoo`)
+    const jikeAxios = this.axios.get(`${apiUrl}/?source=jikeFollower&queryKey=0cdff532-44f1-4109-bfba-7da3debef5d5`)
+    const zhihuAxios = this.axios.get(`${apiUrl}/?source=zhihu&queryKey=skyrocketHong`)
+    const weiboAxios = this.axios.get(`${apiUrl}/?source=weibo&queryKey=2947616165`)
+    const twitterAxios = this.axios.get(`${apiUrl}/?source=twitter&queryKey=skyrocketinHong`)
+    const githubAxios = this.axios.get(`${apiUrl}/?source=github&queryKey=skyrocketingHong`)
+    const steamGamesAxios = this.axios.get(`${apiUrl}/?source=steamGames&queryKey=76561198421901744`)
 
-    rssAxios.then(r => {
-      this.rss = { data: r.data.data.totalSubs, loading: false }
-    })
-    sspaiAxios.then(r => {
-      this.sspai = { data: r.data.data.totalSubs, loading: false }
-    })
-    jikeAxios.then(r => {
+    jikeAxios.then((r) => {
       this.jike = { data: r.data.data.totalSubs, loading: false }
     })
-    zhihuAxios.then(r => {
+    zhihuAxios.then((r) => {
       this.zhihu = { data: r.data.data.totalSubs, loading: false }
     })
-    weiboAxios.then(r => {
+    weiboAxios.then((r) => {
       this.weibo = { data: r.data.data.totalSubs, loading: false }
     })
-    twitterAxios.then(r => {
+    twitterAxios.then((r) => {
       this.twitter = { data: r.data.data.totalSubs, loading: false }
     })
-    mediumAxios.then(r => {
-      this.medium = { data: r.data.data.totalSubs, loading: false }
-    })
-    githubAxios.then(r => {
+    githubAxios.then((r) => {
       this.github = { data: r.data.data.totalSubs, loading: false }
     })
-    steamGamesAxios.then(r => {
+    steamGamesAxios.then((r) => {
       this.steamGames = { data: r.data.data.totalSubs, loading: false }
-    })
-    telegramAxios.then(r => {
-      this.telegram = { data: r.data.data.totalSubs, loading: false }
     })
   },
 }
