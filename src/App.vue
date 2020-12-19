@@ -20,6 +20,7 @@
             ><img
               src="https://img.shields.io/badge/Designed%20by-github.com%2Fspencerwooo-black?logo=github&style=for-the-badge&labelColor=24292e"
               alt="copyright"
+              style="max-width: 100%; max-height: 100%; display: block"
           /></a>
         </p>
       </div>
@@ -78,11 +79,24 @@ export default {
   margin: 0px auto 0px auto;
   max-width: 664px;
   padding: 0px 20px 40px 20px;
+
+  display: flex;
+  min-height: 80vh;
+  flex-direction: column;
 }
 
 #main-navbar {
   padding-right: 5px;
   background-color: #fafafa;
+
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  background-color: hsla(0, 0%, 100%, 0.6);
+  background-color: rgba(var(--bg-color-rgb), 0.6);
+  -webkit-backdrop-filter: blur(32px);
+  backdrop-filter: blur(32px);
+  z-index: 5;
 }
 
 .vnb__collapse-button img {
@@ -148,5 +162,10 @@ export default {
 .fade-enter,
 .fade-leave-active {
   opacity: 0;
+}
+
+#app {
+  height: 100%;
+  flex: 1;
 }
 </style>

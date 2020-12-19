@@ -8,10 +8,14 @@ import Social from './views/Social.vue'
 import NotFound from './views/NotFound.vue'
 import OtherLinks from './views/OtherLinks.vue'
 
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+
 import './assets/styles/base.css'
 
 Vue.config.productionTip = false
 Vue.use(VueRouter)
+Vue.use(ElementUI)
 
 import VueNavigationBar from 'vue-navigation-bar'
 Vue.component('vue-navigation-bar', VueNavigationBar)
